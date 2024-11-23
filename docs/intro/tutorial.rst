@@ -1,7 +1,7 @@
 .. _intro-tutorial:
 
 ===============
-Scrapy Tutorial (addas test)
+Scrapy Tutorial
 ===============
 
 In this tutorial, we'll assume that Scrapy is already installed on your system.
@@ -368,6 +368,17 @@ with Scrapy Selectors here <topics-selectors>`. To learn more about XPath, we
 recommend `this tutorial to learn XPath through examples
 <http://zvon.org/comp/r/tut-XPath_1.html>`_, and `this tutorial to learn "how
 to think in XPath" <http://plasmasturm.org/log/xpath101/>`_.
+
+SA Note: We can also get specific elements from a list of text returned by XPath expressions by using their index. This allows us to extract a particular piece of content when multiple matches are returned.
+For example, if we want to get the third quote in the text, we can use the .getall() method to retrieve all quotes as a list, and then access the desired one by its index (remembering that indexes start at 0):
+
+.. code-block:: pycon
+
+    >>> response.xpath("//span[@class='text']/text()").getall()[2]
+    '“There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.”'
+
+
+
 
 .. _XPath: https://www.w3.org/TR/xpath-10/
 .. _CSS: https://www.w3.org/TR/selectors
